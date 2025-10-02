@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+   <!--UTF-8 (Unicode Transformation Format 8-bit) é um conjunto de caracteres universal que suporta quase todos os caracteres de todos os idiomas escritos, incluindo acentos, símbolos especiais e emoji-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--a meta tag abaixo força o Internet Explorer a usar o mecanismo de renderização mais recente disponível no computador do usuário, em vez dos modos de compatibilidade mais antigos-->
+    <meta http-equiv="X-UA-Compatible" content ="IE=edge">
+   <!-- VIEWPORT é a do navegador é a área da janela na qual o conteúdo da web pode ser visualizado;
+     A WIDTH=DEVICE-WIDTH define a largura da página para seguir a largura da tela do dispositivo (que pode variar dependendo do dispositivo);
+     A INITIAL-SCALE=1.0  define o nível de zoom inicial quando a página é carregada pela primeira vez pelo navegador.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <title>busqueCEP</title>
+
+</head>
+
+
+<body>
+    <!-- inicio background azul -->
+    <div class="background-azul">
+
+        <!-- inicio header -->
+        <header>
+            <!-- HEADER é uma tag semântica usada para representar conteúdo introdutório ou um conjunto de recursos de navegação. Normalmente, aparece no topo de uma página da web ou em uma seção distinta dentro de uma página.-->
+            <!-- inicio container -->
+            <div class="container">
+
+                <nav>
+                    <div class="logo-container">
+                        <a href="index.html"> busqueCEP </a>
+                    </div>
+
+                    <ul class="menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+            <!-- fim container -->
+        </header>
+        <!-- fim header -->
+    <!-- fim background azul -->
+    </div>
+
+
+    <!-- inicio background branco -->
+    <div class="container-background-branco">
+
+        <!-- inicio nav -->
+        <nav class="container-busca-cep">
+            <h2>Digite o CEP</h2>
+
+            <!--inicio form-->
+             <form id="cep-form">
+            <input type="text" id="cep" placeholder="Ex: 01001-000" maxlength="9" required>
+            <button type="submit">Buscar CEP</button>
+        </form>
+        <!--fim form-->
+
+        <!-- inicio container resultado -->
+        <div class="container">
+            <div id="resultado"></div>
+        </div>
+        <!-- fim container resultado -->
+        </nav>
+        <!-- fim nav -->
+
+
+
+        <!-- inicio main -->
+        <main>
+            <!-- inicio container -->
+            <div class="container">
+
+                <!-- inicio conteudo principal -->
+                 <div class="main-text">
+                    <h1>Encontre CEPs Rápido e Fácil</h1>
+                    
+                    <div>
+                        <button class="btn-primary">Buscar CEP</button>
+                    </div>
+                </div>
+                <!-- fim conteudo principal -->
+
+
+                <!-- inicio imagem principal -->
+                <div class="main-image">
+                    <img src="img/icon-buscar-cep.png" alt="Imagem de um mapa com um marcador de localização">
+
+                </div>  
+                <!-- fim imagem principal -->
+                 
+            </div>
+            <!-- fim container -->
+
+
+            <!-- inicio seção descrição -->
+            <section class="descricao">
+                <div class="container">
+                    <h2>Sobre o busqueCEP</h2>
+                    <p>O busqueCEP é uma ferramenta online que permite aos usuários encontrar rapidamente o Código de Endereçamento Postal (CEP) de qualquer endereço no Brasil. Com uma interface simples e intuitiva, o busqueCEP facilita a busca por CEPs, ajudando empresas e indivíduos a garantir que suas correspondências e encomendas sejam entregues corretamente.</p>
+                    <p>Nosso serviço é ideal para quem precisa validar endereços, enviar correspondências ou simplesmente encontrar o CEP de um local específico. Com acesso a uma base de dados atualizada, o busqueCEP oferece resultados precisos e confiáveis em questão de segundos.</p>
+                </div>
+
+            </section>  
+
+            <section class="faq">
+                <div class="container">
+                    <h2>Perguntas Frequentes</h2>
+                    <div class="faq-item">
+                        <h3>Como funciona o busqueCEP?</h3>
+                        <p>O busqueCEP utiliza uma base de dados abrangente para fornecer informações precisas sobre CEPs em todo o Brasil. Basta inserir o endereço desejado e clicar em "Buscar CEP".</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>O serviço é gratuito?</h3>
+                        <p>Sim, o busqueCEP é totalmente gratuito e não requer cadastro.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- fim seção descrição -->
+
+        </main>
+        <!-- fim main -->
+
+    </div>
+
+
+<!-- Script para busca de CEP -->
+<script>
+  const form = document.getElementById('cep-form');
+  const resultado = document.getElementById('resultado');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+
+    // Validação simples
+    if (cep.length !== 8) {
+      resultado.innerHTML = '<p style="color:red;">CEP inválido. Digite 8 números.</p>';
+      return;
+    }
+
+    // Animação de carregamento
+    resultado.innerHTML = '<div class="loader"></div>';
+
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+
+      if (data.erro) {
+        resultado.innerHTML = '<p style="color:red;">CEP não encontrado.</p>';
+      } else {
+        resultado.innerHTML = `
+          <p><strong>Logradouro:</strong> ${data.logradouro}</p>
+          <p><strong>Bairro:</strong> ${data.bairro}</p>
+          <p><strong>Cidade:</strong> ${data.localidade}</p>
+          <p><strong>Estado:</strong> ${data.uf}</p>
+        `;
+      }
+    } catch (error) {
+      resultado.innerHTML = '<p style="color:red;">Erro ao buscar o CEP.</p>';
+    }
+  });
+</script>
+<!-- Script para busca de CEP -->
+ 
+</body>
+</html>
