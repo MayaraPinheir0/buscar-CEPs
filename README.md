@@ -2,7 +2,7 @@
 
 Esta aplicação foi desenvolvida como parte das práticas de front-end da disciplina de Desenvolvimento Web Responsivo, com o objetivo de aplicar conceitos como de HTML, CSS e JavaScript.
 
-**BusqueCEP** é uma aplicação web desenvolvida como atividade acadêmica para o curso de **Sistemas para Internet** da **Faculdade de Computação**. O projeto permite que usuários consultem endereços no Brasil a partir do CEP (Código de Endereçamento Postal), integrando a [API ViaCEP](https://viacep.com.br/) para obter dados em tempo real. 
+**BusqueCEP** é uma aplicação web desenvolvida como atividade acadêmica para o curso de **Ciência da Computação** da **Universidade da Amazônia - UNAMA**. O projeto permite que usuários consultem endereços no Brasil a partir do CEP (Código de Endereçamento Postal), integrando a [API ViaCEP](https://viacep.com.br/) para obter dados em tempo real. 
 
 ---
 
