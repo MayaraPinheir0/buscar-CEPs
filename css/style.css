@@ -56,6 +56,18 @@ nav{
    color:white;
 }
 
+.container-principal{
+  display: flex; /*Habilita o Flexbox*/
+  flex-direction: column; /*Alinha os itens em uma coluna*/
+  align-items: center; /*Centraliza os itens horizontalmente*/
+  gap: 20px; /*Adiciona um espaço de 20px entre os itens*/
+}
+
+.container img{
+    width: 50%; /* Faz a imagem ocupar metade a largura do contêiner */
+    height: auto;
+  }
+
 .menu{
     display: flex;
     gap: 20px;
@@ -68,6 +80,17 @@ nav{
     font-size: 18px;
 }
 
+.form-container{
+  /*definimos a largura do box*/
+	width:300px;
+	/* definimos a altura do box */
+	height:100px;
+	/* definimos a cor de fundo do box */
+	background-color:#6495ed;
+	/* definimos o quão arredondado irá ficar nosso box */
+	border-radius: 10px 20px 30px 40px;
+}
+
 /* main */
 main .container{
     display: flex;
@@ -76,9 +99,15 @@ main .container{
     padding: 60px 0;
 }
 
+.main-image{
+    width: 50%;
+    padding-right: 10%;
+}
+
 .main-text{
-    width: 600px;
-    color: var(--branco-gelo)
+    width: 40%;
+    color: var(--azul-marinho);
+    padding-left: 10%;
 }
 
 .main-text h1{
@@ -165,3 +194,4 @@ input.valid {
 input.invalid {
   border: 2px solid red;
 }
+

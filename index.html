@@ -18,17 +18,11 @@
 
 </head>
 
-
 <body>
-    <!-- inicio background azul -->
     <div class="background-azul">
-
-        <!-- inicio header -->
         <header>
             <!-- HEADER é uma tag semântica usada para representar conteúdo introdutório ou um conjunto de recursos de navegação. Normalmente, aparece no topo de uma página da web ou em uma seção distinta dentro de uma página.-->
-            <!-- inicio container -->
             <div class="container">
-
                 <nav>
                     <div class="logo-container">
                         <a href="index.html"> busqueCEP </a>
@@ -40,95 +34,69 @@
                         <li><a href="#">Contato</a></li>
                     </ul>
                 </nav>
-
             </div>
-            <!-- fim container -->
         </header>
-        <!-- fim header -->
     <!-- fim background azul -->
     </div>
 
+    <div class="container-principal">
+        <img src="img/icon-buscar-cep.png" alt="Imagem de busca de CEP">
+        <h1>Encontre CEPs Rápido e Fácil</h1>
+        <p>Use nosso serviço gratuito para buscar CEPs em todo o Brasil. Simples, rápido e confiável!</p>
+    </div>
 
-    <!-- inicio background branco -->
-    <div class="container-background-branco">
+<main>
 
-        <!-- inicio nav -->
-        <nav class="container-busca-cep">
-            <h2>Digite o CEP</h2>
-
-            <!--inicio form-->
-             <form id="cep-form">
+    
+           
+    <hr>  
+    
+            <!--FORMS-->
+        <div class="form-container">
+            <form id="cep-form">
             <input type="text" id="cep" placeholder="Ex: 01001-000" maxlength="9" required>
             <button type="submit">Buscar CEP</button>
         </form>
-        <!--fim form-->
+        </div>
+        <!--FORMS-->
 
         <!-- inicio container resultado -->
         <div class="container">
-            <div id="resultado"></div>
+            <div id="resultado"></div>  
         </div>
         <!-- fim container resultado -->
-        </nav>
-        <!-- fim nav -->
-
+      
 
 
         <!-- inicio main -->
-        <main>
-            <!-- inicio container -->
-            <div class="container">
 
-                <!-- inicio conteudo principal -->
-                 <div class="main-text">
-                    <h1>Encontre CEPs Rápido e Fácil</h1>
-                    
-                    <div>
-                        <button class="btn-primary">Buscar CEP</button>
-                    </div>
-                </div>
-                <!-- fim conteudo principal -->
+    <!-- inicio seção descrição -->
+    <section class="descricao">
+        <div class="container">
+            <h2>Sobre o busqueCEP</h2>
+            <p>O busqueCEP é uma ferramenta online que permite aos usuários encontrar rapidamente o Código de Endereçamento Postal (CEP) de qualquer endereço no Brasil. Com uma interface simples e intuitiva, o busqueCEP facilita a busca por CEPs, ajudando empresas e indivíduos a garantir que suas correspondências e encomendas sejam entregues corretamente.</p>
+            <p>Nosso serviço é ideal para quem precisa validar endereços, enviar correspondências ou simplesmente encontrar o CEP de um local específico. Com acesso a uma base de dados atualizada, o busqueCEP oferece resultados precisos e confiáveis em questão de segundos.</p>
+        </div>
+    </section>  
 
-
-                <!-- inicio imagem principal -->
-                <div class="main-image">
-                    <img src="img/icon-buscar-cep.png" alt="Imagem de um mapa com um marcador de localização">
-
-                </div>  
-                <!-- fim imagem principal -->
-                 
-            </div>
-            <!-- fim container -->
-
-
-            <!-- inicio seção descrição -->
-            <section class="descricao">
-                <div class="container">
-                    <h2>Sobre o busqueCEP</h2>
-                    <p>O busqueCEP é uma ferramenta online que permite aos usuários encontrar rapidamente o Código de Endereçamento Postal (CEP) de qualquer endereço no Brasil. Com uma interface simples e intuitiva, o busqueCEP facilita a busca por CEPs, ajudando empresas e indivíduos a garantir que suas correspondências e encomendas sejam entregues corretamente.</p>
-                    <p>Nosso serviço é ideal para quem precisa validar endereços, enviar correspondências ou simplesmente encontrar o CEP de um local específico. Com acesso a uma base de dados atualizada, o busqueCEP oferece resultados precisos e confiáveis em questão de segundos.</p>
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <h3>Como funciona o busqueCEP?</h3>
+                    <p>O busqueCEP utiliza uma base de dados abrangente para fornecer informações precisas sobre CEPs em todo o Brasil. Basta inserir o endereço desejado e clicar em "Buscar CEP".</p>
                 </div>
 
-            </section>  
-
-            <section class="faq">
-                <div class="container">
-                    <h2>Perguntas Frequentes</h2>
-                    <div class="faq-item">
-                        <h3>Como funciona o busqueCEP?</h3>
-                        <p>O busqueCEP utiliza uma base de dados abrangente para fornecer informações precisas sobre CEPs em todo o Brasil. Basta inserir o endereço desejado e clicar em "Buscar CEP".</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>O serviço é gratuito?</h3>
-                        <p>Sim, o busqueCEP é totalmente gratuito e não requer cadastro.</p>
-                    </div>
+                <div class="faq-item">
+                    <h3>O serviço é gratuito?</h3>
+                    <p>Sim, o busqueCEP é totalmente gratuito e não requer cadastro.</p>
                 </div>
-            </section>
-            <!-- fim seção descrição -->
+    </section>
+    <!-- fim seção descrição -->
 
-        </main>
-        <!-- fim main -->
+</main>
+<!-- fim main -->
 
-    </div>
 
 
 <!-- Script para busca de CEP -->
